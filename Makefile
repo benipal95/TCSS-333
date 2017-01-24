@@ -1,14 +1,12 @@
-#Fill in the dependencies and rules to make the make file
+testVectors:  testVectors.o vectors.o vectors.h
+  gcc -o  testVectors vectors.o testVectors.o -lm
 
-testVectors: #depends on...
-	#rule to make testVectors from dependencies HINT: you need to add a flag for the math library (google it)
-	
-vectors.o: #depends on...
-	#rule to make vectors.o from dependencies
+vectors.o:  vectors.c vectors.h
+  gcc -o  vectors.o -c  vectors.c
 
-testVectors.o: #depends on... 
-	#rule to make testVectors.o from dependences
+testVectors.o: testVectors.c vectors.c
+  gcc -o  testVectors.o -c  testVectors.c
 
 clean:
-	rm *.o
-	rm testVectors
+  rm  *.o
+  rm  testVectors
